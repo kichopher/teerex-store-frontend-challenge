@@ -11,8 +11,11 @@ function App() {
   const [allProducts, setAllProducts] = useState([])
   // const isAllProductsFetched = allProducts.length > 0
   const productsToDisplay = allProducts
-  const cartedProducts = []
- //can keep a local variable called productsToDisplay that can be passed as prop to products page
+
+  const cartedProducts = config.sampleCart //Change this. 
+  //Structure: [{productDetails:{...}, cartedProductQuantity:1},..]
+ 
+  //can keep a local variable called productsToDisplay that can be passed as prop to products page
  //productsToDisplay will be all the products that are to be shown after applying the search and filters
  //the filter and search functionalities can be implemented using callback functions that handles changes in search and filter
  
@@ -34,7 +37,7 @@ function App() {
     <NavBar />
     <Routes>
       <Route path="/" element={<ProductsPage productsToDisplay={productsToDisplay} />} />
-      <Route path="/cart" element={<ShoppingCartPage />} />
+      <Route path="/cart" element={<ShoppingCartPage cartedProducts={cartedProducts}/>} />
       {/* Handling no match routes */}
       <Route path="*" element={<InvalidRouteErrorPage />} />
     </Routes>

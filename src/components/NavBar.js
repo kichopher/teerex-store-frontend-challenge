@@ -14,7 +14,9 @@ export default function NavBar() {
                 padding={2}
 
             >
-                <Link href="/" underline='none'><Typography fontWeight='bold' variant="h5">TeeRex Store</Typography></Link>
+                <Link href="/" underline='none'>
+                    <Typography fontWeight='bold' variant="h5">TeeRex Store</Typography>
+                </Link>
                 <Stack direction="row" spacing={2}>
                     <Button href="/" variant="outlined">Products</Button>
                     <ShoppingCartNavButton cartItemCount={cartItemCount} />

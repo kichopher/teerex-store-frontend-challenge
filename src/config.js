@@ -46,6 +46,70 @@ const productFilterGroups = [
 
 config.productFilterGroups = productFilterGroups
 
+const sampleCart = [
+    {
+        productDetails: {
+            id: 1,
+            imageURL: "https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png",
+            name: "Black Polo",
+            type: "Polo",
+            price: 250,
+            currency: "INR",
+            color: "Black",
+            gender: "Men",
+            quantity: 3
+        },
+        cartedProductQuantity: 1
+    },
+    {
+        productDetails: {
+            id: 8,
+            imageURL: "https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/hoodie-tshirts.png",
+            name: "Black Hoodie",
+            type: "Hoodie",
+            price: 500,
+            currency: "INR",
+            color: "Black",
+            gender: "Women",
+            quantity: 5
+
+        },
+        cartedProductQuantity: 1
+    },
+    {
+        productDetails: {
+            id: 15,
+            imageURL: "https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/round-neck-tshirts.png",
+            name: "Black Round",
+            type: "Basic",
+            price: 300,
+            currency: "INR",
+            color: "Black",
+            gender: "Men",
+            quantity: 7
+        },
+        cartedProductQuantity: 1
+    },
+    {
+
+        productDetails: {
+            id: 30,
+            imageURL: "https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png",
+            name: "Black Polo",
+            type: "Polo",
+            price: 300,
+            currency: "INR",
+            color: "Black",
+            gender: "Women",
+            quantity: 4
+        },
+        cartedProductQuantity: 1
+    }
+]
+
+
+config.sampleCart = sampleCart
+
 export { config }
 
 
