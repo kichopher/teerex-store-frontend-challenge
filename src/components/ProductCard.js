@@ -26,7 +26,6 @@ export default function ProductCard(props) {
     //     quantity: 3
     // }
    
-    //minimum 0 (if zero than remove from cart), maximum= available quantity
     const productId = productDataObject.id
     const productIsInCart = cartQueries.isProductInCart(productId)
     const cartedProductQuantity = cartQueries.getCartedProductQuantity(productId)

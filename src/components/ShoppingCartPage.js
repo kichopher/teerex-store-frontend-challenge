@@ -10,10 +10,10 @@ function ShoppingCartPage(props) {
     getProductDetailsUsingProductId,
     cartQueries } = props
   const isCartEmtpy = (cartedProductDetails.length === 0)
-  
-  const getCartTotal = () =>{
+
+  const getCartTotal = () => {
     let cartTotal = 0
-    cartedProductDetails.forEach(cartedProductDetail =>{
+    cartedProductDetails.forEach(cartedProductDetail => {
       const cartedProductQuantity = cartedProductDetail.cartedQuantity
       const productId = cartedProductDetail.productId
       const cartedProductPrice = getProductDetailsUsingProductId(productId).price
@@ -21,17 +21,12 @@ function ShoppingCartPage(props) {
     })
     return cartTotal
   }
-  
+
   let cartTotal = getCartTotal()
 
 
   return (
-    //Stack column, with alignItems="flex-start"
-    //Stack contains 3 sections, 1st is the Shopping cart title
-    //2nd is the carted items list where each item gets a card 
-    //3rd is the cart total 
     <Container maxWidth="sm" sx={{ padding: 0, paddingBottom: 2 }}>
-
       <Stack
         alignItems="flex-start"
         justifyContent="flex-start"
@@ -54,8 +49,6 @@ function ShoppingCartPage(props) {
           </Paper>
         }
       </Stack>
-
-
     </Container>
   )
 }

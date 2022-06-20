@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Box, Dialog } from '@mui/material';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
-// import ProductFiltersPanel from './ProductFiltersPanel';
 
 export default function ProductFiltersButtonToShowFilterDialog(props) {
     const children = props.children

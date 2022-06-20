@@ -6,23 +6,20 @@ import ProductsGrid from './ProductsGrid'
 import ProductFiltersButtonToShowFilterDialog from './ProductFiltersButtonToShowFilterDialog'
 import { config } from '../config'
 
-//this component implements search and filter functionalities of the page
-//this component updates cart using the AddToCartButton.js component (will recieve handler and cart details as props)
-//productsToDisplay must be a state which uses a combination of allProducts, filters and search to update its value
-//Only change in allProducts should affect. Change of cart should not cause this state to re-run
+
 function ProductsPage(props) {
   const { allProducts, cartQueries } = props
   const [productsAfterSearch, setProductsAfterSearch] = useState([])
   const [productsToDisplay, setProductsToDisplay] = useState([])
   const [filterSelectionStatusObject, setFilterSelectionStatusObject] = useState(config.filterSelectionStatusObject)
-  //isFilterCheck object allows for quick querying of selected/checked status of a filter
+  //filterSelectionStatusObject object allows for quick querying of selected/checked status of a filter
   //access the checked status like so:
   // filterSelectionStatusObject[filterCategory][filter] will have a Boolean value true || false
   // it would all be initialized to false
   const [isFilterDialogOpen, setIsFilterDialogOpen] = useState(false)
   const [searchFieldText, setSearchFieldText] = useState('')
 
-  /****filterSelectionStatusObject state handlers:****/
+  /****filterSelectionStatusObject state handler:****/
   const handleFilterCheckUncheck = (filterCategory, filter) => {
     const copyOfFilterSelectionStatusObject = { ...filterSelectionStatusObject }
     const copyOfFilterCategoryCheckedStatusObject = { ...copyOfFilterSelectionStatusObject[filterCategory] }
@@ -42,12 +39,12 @@ function ProductsPage(props) {
     setIsFilterDialogOpen(false)
   }
 
-  /****searchFieldText state handlers:****/
+  /****searchFieldText state handler:****/
   const handleSearchFieldTextChange = (newSearchFieldText) => {
     setSearchFieldText(newSearchFieldText)
   }
 
-  /****Case insensitive search for string in array. common utility function****/
+  /****Case insensitive search for string in array****/
   const wordFoundInArray = (keyword, array) => {
     //this function is a case-insensitive version of Array.prototype.includes()
     const found = array.find(arrayElement => {
@@ -98,7 +95,6 @@ function ProductsPage(props) {
   }
 
 
-  //this function is triggered when filterSelectionStatusObject is changed or productsAfterSearch is changed
   const applyFiltersAndSetProductsToDisplay = useCallback((productsToFilter, filterSelectionStatusObject) => {
     //first parse the filterSelectionStatusObject to segregate selected filters into bins
     //  such as selectedColorFilters, selectedTypeFilters, selectedPriceRangeFilters, selectedGenderFilters
@@ -145,7 +141,7 @@ function ProductsPage(props) {
   }, [])
 
 
-  /****search implementation and productsAfterSearch state handlers:****/
+  /****search implementation helpers and productsAfterSearch state handler:****/
   const getSearchedProducts = (productsToSearchFrom, searchKeyWords) => {
     const searchKeyWordHasMatchedSomeProductProperty = (searchKeyWord, productPropertiesToSearch) => {
       const regexToSearchKeyWordInProductProperty = new RegExp(`\\b${searchKeyWord}\\b`, "i") //case insensitive match

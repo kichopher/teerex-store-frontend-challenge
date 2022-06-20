@@ -9,7 +9,6 @@ import {
   FormControlLabel
 } from '@mui/material'
 import DoneIcon from '@mui/icons-material/Done';
-// import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import { config } from '../config'
 
 
@@ -49,7 +48,8 @@ export default function ProductFiltersPanel(props) {
           {filters.map((filter, index) => {
             let filterText = filter
             if (filterCategory.toLowerCase() === "Price".toLowerCase()) {
-              filterText = generatePriceFilterTextGivenPriceRangeString(filter) //here filter will be of the form 'lowerLimit,upperLimit'
+              filterText = generatePriceFilterTextGivenPriceRangeString(filter) 
+              //here filter will be of the form 'lowerLimit,upperLimit'
             }
             return (
               <FormControlLabel

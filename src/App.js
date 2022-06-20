@@ -122,13 +122,9 @@ function App() {
 
   return <>
     <NavBar cartItemCount={cartedProductDetails.length} />
-    {/* NavBar will take cartedProducts as props, for use in NavBarShoppingCartButton.js component */}
+
     <Routes>
       <Route path="/" element={<ProductsPage allProducts={allProducts} cartQueries={cartQueries} />} />
-      {/* ProductsPage will take props for productsToDisplay, to render the product grid */}
-      {/* ProductsPage should take allProducts and use the search and filters to generate the products list */}
-      {/* it should take the cartedProducts array for use in the AddToCartButton.js component */}
-
       <Route path="/cart"
         element={<ShoppingCartPage
           cartedProductDetails={cartedProductDetails}
