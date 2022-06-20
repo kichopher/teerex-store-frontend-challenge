@@ -3,7 +3,7 @@ import { Grid } from '@mui/material'
 import ProductCard from './ProductCard'
 
 export default function ProductsGrid(props) {
-    const { productsToDisplay } = props
+    const { productsToDisplay, cartQueries } = props
 
     return (
         <Grid container>
@@ -14,7 +14,7 @@ export default function ProductsGrid(props) {
                         xs={12} sm={6} lg={4} xl={3}
                         padding={1} paddingTop={0} paddingBottom={2}
                     >
-                        <ProductCard productDataObject={productDataObject} />
+                        <ProductCard productDataObject={productDataObject} cartQueries={cartQueries}/>
                     </Grid>
                 )
             })}

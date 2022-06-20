@@ -3,16 +3,20 @@ import { Stack } from '@mui/material'
 import ShoppingCartItemCard from './ShoppingCartItemCard'
 
 export default function ShoppingCartItemsList(props) {
-    const { cartedProducts } = props
+    const {
+        cartedProductDetails,
+        getProductDetailsUsingProductId,
+        cartQueries } = props
 
     return (
         <Stack spacing={2}>
             {
-                cartedProducts.map((cartedProduct) => {
+                cartedProductDetails.map((cartedProductDetail) => {
                     return (
-                        <ShoppingCartItemCard
-                            cartedProduct={cartedProduct}
-                            key={cartedProduct.productDetails.id}
+                        <ShoppingCartItemCard key={cartedProductDetail.productId}
+                            cartedProductDetail={cartedProductDetail}
+                            getProductDetailsUsingProductId={getProductDetailsUsingProductId}
+                            cartQueries={cartQueries}
                         />
                     )
                 })

@@ -1,9 +1,12 @@
 import React from 'react'
 import { Box, Stack, Typography, Button, Divider, Link } from "@mui/material"
-import ShoppingCartNavButton from './ShoppingCartNavButton';
+import { useNavigate, Link as RouterLink } from 'react-router-dom'
+import NavBarShoppingCartButton from './NavBarShoppingCartButton';
 
-export default function NavBar() {
-    let cartItemCount = 4
+export default function NavBar(props) {
+    let navigate = useNavigate()
+    let { cartItemCount } = props
+
     return (
         <Box >
             <Stack
@@ -14,12 +17,12 @@ export default function NavBar() {
                 padding={2}
 
             >
-                <Link href="/" underline='none'>
+                <Link component={RouterLink} to="/" underline='none' >
                     <Typography fontWeight='bold' variant="h5">TeeRex Store</Typography>
                 </Link>
                 <Stack direction="row" spacing={2}>
-                    <Button href="/" variant="outlined">Products</Button>
-                    <ShoppingCartNavButton cartItemCount={cartItemCount} />
+                    <Button onClick={() => navigate('/')} variant="outlined">Products</Button>
+                    <NavBarShoppingCartButton cartItemCount={cartItemCount} />
                 </Stack>
             </Stack>
             <Divider />

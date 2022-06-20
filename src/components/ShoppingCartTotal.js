@@ -14,7 +14,7 @@ export default function ShoppingCartTotal(props) {
         >
             <Typography variant='h6' fontWeight='bold'>Cart Total :</Typography>
             <Typography variant='h6' fontWeight='bold'>
-                {config.currencySymbol}.{cartTotal}
+                {config.currencySymbol}{cartTotal}
             </Typography>
         </Stack>
     )

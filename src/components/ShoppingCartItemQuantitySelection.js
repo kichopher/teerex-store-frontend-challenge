@@ -1,9 +1,13 @@
 import React from 'react'
-import { FormControl, Select, MenuItem} from '@mui/material'
+import { FormControl, Select, MenuItem } from '@mui/material'
 
 
 export default function ShoppingCartItemQuantitySelection(props) {
-    const { maxQuantity, currentSelectedQuantity } = props
+    const {
+        maxQuantity,
+        currentSelectedQuantity,
+        productId,
+        updateCartedProductQuantity } = props
 
     const generateMenuItemList = (maxQuantity) => {
         const menuItemList = []
@@ -17,11 +21,10 @@ export default function ShoppingCartItemQuantitySelection(props) {
     return (
         <FormControl size="small">
             <Select
-                paddingX={0}
-                // value={currentSelectedQuantity} //controlled
-                defaultValue={currentSelectedQuantity} //uncontrolled
+                value={currentSelectedQuantity} 
                 onChange={(e) => {
-                    console.log(`Quantity changed to ${e.target.value}`)
+                    const newQuantity = e.target.value
+                    updateCartedProductQuantity(productId, newQuantity)
                 }}
             >
                 {generateMenuItemList(maxQuantity)}

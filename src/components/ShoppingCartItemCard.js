@@ -4,13 +4,16 @@ import ShoppingCartItemQuantitySelection from './ShoppingCartItemQuantitySelecti
 import { config } from '../config'
 
 export default function ShoppingCartItemCard(props) {
-    const { cartedProduct } = props
     const {
-        id: productId,
+        cartedProductDetail,
+        getProductDetailsUsingProductId,
+        cartQueries } = props
+    const productId = cartedProductDetail.productId
+    const {
         name: productName,
         imageURL,
         price,
-        quantity: maxAvailableQuantity } = cartedProduct.productDetails
+        quantity: maxAvailableQuantity } = getProductDetailsUsingProductId(productId)
 
     return (
         <Paper variant="outlined" sx={{ padding: 2 }}>
@@ -26,18 +29,20 @@ export default function ShoppingCartItemCard(props) {
                     </Box>
                     <Box>
                         <Typography variant='subtitle1' fontWeight="bold">{productName}</Typography>
-                        <Typography variant='subtitle1' fontWeight="bold">{config.currencySymbol}.{price}</Typography>
+                        <Typography variant='subtitle1' fontWeight="bold">{config.currencySymbol}{price}</Typography>
                     </Box>
                 </Stack>
 
                 <Stack direction="row" spacing={2} >
                     <ShoppingCartItemQuantitySelection
                         maxQuantity={maxAvailableQuantity}
-                        currentSelectedQuantity={cartedProduct.cartedProductQuantity}
+                        currentSelectedQuantity={cartedProductDetail.cartedQuantity}
+                        productId={productId}
+                        updateCartedProductQuantity={cartQueries.updateCartedProductQuantity}
                     />
                     <Button
                         size="medium" variant='outlined'
-                        onClick={() => { console.log(`Delete product with id: ${productId}`) }}
+                        onClick={() => cartQueries.removeItemFromCart(productId)}
                     >
                         Delete
                     </Button>
