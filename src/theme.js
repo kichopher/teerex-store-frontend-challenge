@@ -13,11 +13,6 @@ const theme = createTheme({
             dark: "#00b248"
         }
     },
-    // typography: {
-    //     button: {
-    //         textTransform: "none"
-    //     }
-    // },
 });
 
 export default theme;
