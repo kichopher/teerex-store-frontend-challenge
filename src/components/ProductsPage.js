@@ -144,7 +144,7 @@ function ProductsPage(props) {
   /****search implementation helpers and productsAfterSearch state handler:****/
   const getSearchedProducts = (productsToSearchFrom, searchKeyWords) => {
     const searchKeyWordHasMatchedSomeProductProperty = (searchKeyWord, productPropertiesToSearch) => {
-      const regexToSearchKeyWordInProductProperty = new RegExp(`\\b${searchKeyWord}\\b`, "i") //case insensitive match
+      const regexToSearchKeyWordInProductProperty = new RegExp(`\\b${searchKeyWord}`, "i") //case insensitive word match without right boundary. "bl" matches words like "black", "blue"
       return productPropertiesToSearch.some(productProperty => {
         return regexToSearchKeyWordInProductProperty.test(productProperty)
       })
